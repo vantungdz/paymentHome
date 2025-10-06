@@ -137,15 +137,16 @@ export const PaymentPopup: React.FC<PaymentPopupProps> = ({
       onBackdropPress={onClose}
       showCloseButton={true}
     >
-      <ScrollView 
-        style={styles.container}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        bounces={true}
-        scrollEnabled={true}
-        nestedScrollEnabled={true}
-      >
+      <View style={styles.container}>
+        <ScrollView 
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          bounces={true}
+          scrollEnabled={true}
+          nestedScrollEnabled={true}
+        >
         {/* Header với gradient */}
         <View style={styles.header}>
           <View style={styles.headerIcon}>
@@ -244,7 +245,8 @@ export const PaymentPopup: React.FC<PaymentPopupProps> = ({
 
         {/* Extra space */}
         <View style={{ height: 100 }} />
-      </ScrollView>
+        </ScrollView>
+      </View>
 
       {/* Toast notification */}
       {currentToast && (

@@ -1,9 +1,10 @@
-import { StyleSheet } from "react-native";
-import { Colors, Shadows, Spacing, Typography } from "../theme";
+import { StyleSheet } from 'react-native';
+import { Colors, Shadows, Spacing, Typography } from '../theme';
 
 export const PaymentPopupStyles = StyleSheet.create({
   // Container styles
   container: {
+    flex: 1,
     maxHeight: 600, // Giữ maxHeight để scroll hoạt động
   },
 
@@ -18,7 +19,7 @@ export const PaymentPopupStyles = StyleSheet.create({
 
   // Header styles
   header: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: Spacing.lg,
     paddingVertical: Spacing.md,
   },
@@ -28,8 +29,8 @@ export const PaymentPopupStyles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
     backgroundColor: Colors.primaryLight,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: Spacing.md,
     ...Shadows.card,
   },
@@ -57,7 +58,7 @@ export const PaymentPopupStyles = StyleSheet.create({
     borderRadius: 16,
     padding: Spacing.lg,
     marginBottom: Spacing.lg,
-    alignItems: "center",
+    alignItems: 'center',
     ...Shadows.card,
   },
 
@@ -69,7 +70,7 @@ export const PaymentPopupStyles = StyleSheet.create({
   },
 
   amountContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
 
   amountValue: {
@@ -80,7 +81,7 @@ export const PaymentPopupStyles = StyleSheet.create({
   },
 
   copyBadge: {
-    backgroundColor: "rgba(255,255,255,0.9)",
+    backgroundColor: 'rgba(255,255,255,0.9)',
     paddingHorizontal: Spacing.md,
     paddingVertical: Spacing.xs,
     borderRadius: 20,
@@ -102,8 +103,8 @@ export const PaymentPopupStyles = StyleSheet.create({
   },
 
   detailRow: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: Spacing.lg,
     borderBottomWidth: 1,
     borderBottomColor: Colors.border.light,
@@ -118,8 +119,8 @@ export const PaymentPopupStyles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     backgroundColor: Colors.background.tertiary,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginRight: Spacing.md,
   },
 
@@ -148,7 +149,7 @@ export const PaymentPopupStyles = StyleSheet.create({
     fontSize: Typography.fontSize.md,
     color: Colors.primary,
     fontWeight: Typography.fontWeight.semibold,
-    textDecorationLine: "underline",
+    textDecorationLine: 'underline',
   },
 
   copyIcon: {
@@ -156,8 +157,8 @@ export const PaymentPopupStyles = StyleSheet.create({
     height: 36,
     borderRadius: 18,
     backgroundColor: Colors.primaryLight,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: Spacing.sm,
   },
 
@@ -167,8 +168,8 @@ export const PaymentPopupStyles = StyleSheet.create({
 
   // Tip card styles
   tipCard: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: Colors.infoLight,
     borderRadius: 12,
     padding: Spacing.md,
@@ -216,8 +217,8 @@ export const PaymentPopupStyles = StyleSheet.create({
   },
 
   buttonContent: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   buttonIcon: {
@@ -238,7 +239,7 @@ export const PaymentPopupStyles = StyleSheet.create({
 
   primaryButtonSubtitle: {
     fontSize: Typography.fontSize.xs,
-    color: "rgba(255,255,255,0.8)",
+    color: 'rgba(255,255,255,0.8)',
     fontWeight: Typography.fontWeight.medium,
   },
 
@@ -257,18 +258,19 @@ export const PaymentPopupStyles = StyleSheet.create({
 
   // Toast notification
   toast: {
-    position: "absolute",
-    top: Spacing.lg,
+    position: 'absolute',
+    top: 20,
     left: Spacing.lg,
     right: Spacing.lg,
     backgroundColor: Colors.successDark,
     borderRadius: 12,
     paddingVertical: Spacing.md,
     paddingHorizontal: Spacing.lg,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     zIndex: 1000,
     ...Shadows.card,
+    elevation: 8, // Android shadow
   },
 
   toastIcon: {

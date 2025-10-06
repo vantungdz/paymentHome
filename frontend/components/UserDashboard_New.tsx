@@ -66,7 +66,7 @@ export default function UserDashboard() {
       return;
     }
 
-    const adminPhone = request.createdBy.phone || '0123456789';
+    const adminPhone = request.createdBy.phone || '';
     const amount = userParticipant.amount;
     const message = `${request.title} - ${user?.username}`;
     const adminName = request.createdBy.username || 'Admin';

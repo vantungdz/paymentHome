@@ -14,6 +14,7 @@ interface AuthContextType {
   }) => Promise<boolean>;
   logout: () => Promise<void>;
   isLoading: boolean;
+  setUser: (user: User | null) => void; // Add setUser function
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -22,7 +23,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
+    // Re-enable auto auth check to persist login state
     checkAuthStatus();
   }, []);
 
@@ -31,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const currentUser = await authService.checkAuthStatus();
       setUser(currentUser);
     } catch (error) {
-      console.log('Error checking auth status:', error);
+      console.error('Error checking auth status:', error);
     } finally {
       setIsLoading(false);
     }
@@ -48,7 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       return false;
     } catch (error) {
-      console.log('Login error:', error);
+      console.error('Login error:', error);
       return false;
     }
   };
@@ -89,9 +92,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, isLoading }}>
-      {children}
-    </AuthContext.Provider>
+        <AuthContext.Provider value={{ user, login, register, logout, isLoading, setUser }}>
+          {children}
+        </AuthContext.Provider>
   );
 }
 

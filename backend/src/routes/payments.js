@@ -127,7 +127,13 @@ router.get('/', auth, async (req, res) => {
     }
 
     if (status) {
-      query.status = status;
+      // Handle comma-separated status values
+      const statusArray = status.split(',').map(s => s.trim());
+      if (statusArray.length === 1) {
+        query.status = statusArray[0];
+      } else {
+        query.status = { $in: statusArray };
+      }
     }
 
     if (search) {

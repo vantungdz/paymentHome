@@ -1,6 +1,7 @@
 import { BeautifulAlert } from '@/components/BeautifulAlert';
 import { useAuth } from '@/contexts/AuthContext';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import {
     KeyboardAvoidingView,
@@ -31,6 +32,7 @@ export default function LoginScreen() {
   const [role, setRole] = useState<'admin' | 'user'>('user');
   const [isLoading, setIsLoading] = useState(false);
   const { login, register } = useAuth();
+  const router = useRouter();
   
   // Reanimated shared values
   const fadeValue = useSharedValue(0);
@@ -79,7 +81,11 @@ export default function LoginScreen() {
       const success = await login(username, password);
       setIsLoading(false);
 
-      if (!success) {
+      if (success) {
+        BeautifulAlert.success('Thành công', 'Đăng nhập thành công!', () => {
+          router.replace('/(tabs)');
+        });
+      } else {
         BeautifulAlert.error('Đăng nhập thất bại', 'Tài khoản hoặc mật khẩu không đúng');
       }
     } catch {
